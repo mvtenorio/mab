@@ -1,0 +1,19 @@
+<h3>Filmes</h3>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th width="60%">Título</th>
+			<th width="25%">Diretores</th>
+			<th width="10%">Data</th>
+			<th width="5%">Nota</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="movie in movies | filter:search">
+			<td><div contenteditable>{{ movie.title }}</div></td>
+			<td><div contenteditable>{{ movie.directors }}</div></td>
+			<td><div contenteditable>{{ movie.watched_at }}</div></td>
+			<td><div>{{ movie.rating }}</div></td>
+		</tr>
+	</tbody>
+</table>

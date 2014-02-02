@@ -1,0 +1,13 @@
+.wrapper {
+	margin: 50px;
+}
+
+.typeahead-movies {
+	width: 50%;
+	float: right;
+	margin-bottom: 20px;
+}
+
+#new-movie-submit {
+	display: none;
+}

@@ -1,0 +1,25 @@
+<h2>Filmes e Livros - 2014</h2>
+<hr>
+<h3>Filmes</h3>
+<form data-bind="submit: addMovie">
+	<input type="text" class="typeahead-movies form-control input-md" data-bind="value: newMovieName" placeholder="Novo filme">
+	<input type="submit" id="new-movie-submit">
+</form>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th width="60%">Título</th>
+			<th width="25%">Diretor</th>
+			<th width="10%">Data</th>
+			<th width="5%">Nota</th>
+		</tr>
+	</thead>
+	<tbody data-bind="foreach: movies">
+		<tr>
+			<td><div data-bind="text: completeTitle" contenteditable></td>
+			<td><div data-bind="text: director" contenteditable></td>
+			<td><div data-bind="text: watched_at" contenteditable></td>
+			<td><div data-bind="text: rating"></td>
+		</tr>
+	</tbody>
+</table>
