@@ -4,7 +4,8 @@
 
 var mabApp = angular.module('mabApp', [
   'ngRoute',
-  'mabControllers'
+  'mabControllers',
+  'ui.bootstrap'
 ]);
 
 mabApp.config(['$routeProvider',

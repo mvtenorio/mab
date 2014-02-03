@@ -1,19 +1,57 @@
 <h3>Filmes</h3>
+<hr>
+
+<div class="panel panel-default">
+	<div class="panel-heading">Novo filme</div>
+  	<div class="panel-body">
+    	<form ng-submit="addMovie()" id="new-movie-form">
+			<div class="row">
+				<div class="col-sm-4">
+					<input type="text" ng-model="nmTitle" placeholder="Título" id="new-movie-title" class="form-control">
+				</div>
+				<div class="col-sm-2">
+					<input type="text" ng-model="nmYear" placeholder="Ano" class="form-control">
+				</div>
+				<div class="col-sm-3">
+					<input type="text" ng-model="nmDirectors" placeholder="Diretores" class="form-control">
+				</div>
+				<div class="col-sm-2">
+					<p class="input-group">
+						<input type="text" class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="nmWatchedAt" is-open="opened" datepicker-options="dateOptions" show-button-bar="false" show-weeks="false" placeholder="Data">
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="openCalendar($event)">
+								<i class="fa fa-calendar"></i>
+							</button>
+						</span>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<button type="submit" class="btn btn-default">
+						<i class="fa fa-plus"></i>
+					</button>
+				</div>
+			</div>
+		</form>
+  	</div>
+</div>
+
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th width="60%">Título</th>
+			<th width="5%">#</th>
+			<th width="50%">Título</th>
 			<th width="25%">Diretores</th>
 			<th width="10%">Data</th>
-			<th width="5%">Nota</th>
+			<th width="10%">Nota</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="movie in movies | filter:search">
+			<td>{{ $index + 1 }}</td>
 			<td><div contenteditable>{{ movie.title }}</div></td>
 			<td><div contenteditable>{{ movie.directors }}</div></td>
-			<td><div contenteditable>{{ movie.watched_at }}</div></td>
-			<td><div>{{ movie.rating }}</div></td>
+			<td><div contenteditable>{{ movie.watched_at | date:'dd/MM/yyyy' }}</div></td>
+			<td><i rating class="rating" value="movie.rating" max="5" state-on="'fa fa-star'" state-off="'fa fa-star-o'"></i></td>
 		</tr>
 	</tbody>
 </table>

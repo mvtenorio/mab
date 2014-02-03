@@ -14,12 +14,12 @@ class CreateMoviesTable extends Migration {
 	{
 		Schema::create('movies', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('imdb_id');
 			$table->string('title');
 			$table->string('year');
 			$table->string('directors');
 			$table->date('watched_at');
-			$table->float('rating')->unsigned();
+			$table->integer('rating')->unsigned();
+			$table->string('poster')->nullable();
 		});
 	}
 
